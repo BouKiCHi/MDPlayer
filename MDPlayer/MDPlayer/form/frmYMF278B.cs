@@ -226,13 +226,8 @@ namespace MDPlayer.form
                 nyc = newParam.channels[c];
 
                 int p = c / 9;
-                bool isOp4 = false;
                 int adr = c % 9;
-                if (adr < 6)
-                {
-                    if (newParam.channels[(adr / 2) + p * 3].dda) isOp4 = true;
-                }
-                adr = isOp4 ? (adr / 2) : adr;
+
                 adr = chTbl[adr];
 
                 //BL
