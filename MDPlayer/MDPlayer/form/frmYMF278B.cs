@@ -252,8 +252,10 @@ namespace MDPlayer.form
 
                 bool fouropChannel = cadr < 6;
                 bool fouropControl = fouropChannel && cadr % 2 == 0;
+
+                // 4opのフラグはキーボードの並びと異なる
                 var ccnt = fouropChannel ? newParam.channels[(p * 3) + (cadr / 2)] : null;
-                var cmod = fouropChannel ? newParam.channels[(p * 3) + (cadr / 2) + 1] : null;
+                var csub = fouropControl ? newParam.channels[c + 1] : null;
                 bool fouropMode = ccnt != null && ccnt.dda;
 
                 int cnt2 = fouropControl ? ymf278bRegister[p][0xc3 + adr] & 1 : 0;
@@ -270,8 +272,8 @@ namespace MDPlayer.form
                         if (fouropMode) {
                             int tl1 = nyc.inst[5 + 0 * 17];
                             int tl2 = nyc.inst[5 + 1 * 17];
-                            int tl3 = cmod.inst[5 + 0 * 17];
-                            int tl4 = cmod.inst[5 + 1 * 17];
+                            int tl3 = csub.inst[5 + 0 * 17];
+                            int tl4 = csub.inst[5 + 1 * 17];
 
                             // cnt == 0はTL4
                             int tl = tl4;
