@@ -273,10 +273,10 @@ namespace MDPlayer.form
                             int tl3 = cmod.inst[5 + 0 * 17];
                             int tl4 = cmod.inst[5 + 1 * 17];
 
-                            // if cnt == 0
+                            // cnt == 0はTL4
                             int tl = tl4;
 
-                            int cnt = n << 1 + cnt2;
+                            int cnt = (n << 1) + cnt2;
                             switch(cnt) {
                                 case 1:
                                     tl = Math.Min(tl2, tl4);
